@@ -1,0 +1,91 @@
+@import 'variables';
+
+body {
+	font-size:12px;
+	font-family:'futura-pt', Helvetica, Arial, sans-serif;
+	background:url('../img/att_park_panorama.jpg') #000 0 0 no-repeat;
+	@include vendor-prefix(background-size, cover);
+}
+
+#container {
+	position:relative;
+	z-index:1;
+	margin:0 auto;
+	min-width:630px;
+	width:70%;
+	height:100%;
+	@include vendor-prefix(animation,fadeIn 1.4s ease-in-out);
+	#box {
+		position:relative;
+		top:35%;
+		border:5px solid white;
+		height:200px;
+		background-color:white(0.3);
+	}
+	#box h1 {
+		position:absolute;
+		z-index:1;
+		top:-55px;
+		left:0;
+		color:#fff;
+		font-size:24px;
+		font-weight:400;
+		letter-spacing:1px;
+		text-shadow:0 1px 3px black(0.8);
+	}
+	#countdown {
+		position:absolute;
+		z-index:1;
+		top:40%;
+		width:100%;
+		color:#fff;
+		font-size:37px;
+		font-weight:300;
+		text-align:center;
+		text-shadow:0 1px 3px black(0.4);
+		opacity:0;
+		&.yes { @include vendor-prefix(animation, blink 1s ease-in-out); }
+	}
+	.no-animations #countdown { opacity:1; }
+	
+	#box.animate #countdown {
+		opacity:1;
+		@include vendor-prefix(transition, opacity 0.5s linear);
+		@include vendor-prefix(transform, translate3d(0,0,0));
+	}
+}
+
+footer {
+	position:absolute;
+	z-index:1;
+	bottom:0;
+	width:100%;
+	opacity:1;
+	p {
+		display:block;
+		color:white(0.55);
+		letter-spacing:1px;
+		height:20px;
+		margin:0 auto;
+		width:594px;
+	}
+	a {
+		color:white(0.55);
+		text-decoration:none;
+		&:hover { color:#fff; }
+	}
+	.touch & {
+		display:none;
+	}
+}
+
+@include keyframes(fadeIn) {
+	0% { opacity:0; }
+	100% { opacity:1; }
+}
+
+@include keyframes(blink) {
+	0% { opacity:1; }
+	50% { opacity:0; }
+	100% { opacity:1; }
+}
