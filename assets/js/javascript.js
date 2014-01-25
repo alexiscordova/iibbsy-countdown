@@ -1,9 +1,13 @@
 $(document).ready(function(){
-	new countdownTimer('03/31/2013 5:05 PM', '#countdown');
+	new countdownTimer('03/31/2014 5:05 PM', '#countdown');
 
 	$('#container').on('webkitAnimationEnd', function() {
 		$('#box').addClass('animate');
 	});
+	
+	if ($.browser.mozilla == true) {
+  	$('#box').addClass('animate');
+	}
 
 	function countdownTimer(dt, elem) {
 		var end = new Date(dt),
