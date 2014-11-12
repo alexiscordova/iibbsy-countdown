@@ -1,0 +1,21 @@
+{
+  "name": "IIBBSY",
+  "description": "Is It Baseball Season Yet v2015",
+  "version": "3.0.0",
+  "dependencies": {
+    "requirejs": null,
+    "modernizr": null
+  },
+  "authors": [
+    "Alexis Cordova <acordova@mac.com>"
+  ],
+  "license": "MIT",
+  "homepage": "http://isitbaseballseasonyet.com",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "assets/js/lib"
+  ]
+}

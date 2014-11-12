@@ -1,0 +1,13 @@
+{
+  "name": "classList",
+  "_cacheHeaders": {
+    "ETag": "\"f5eed2cd258e262d10da72c6eccbd055\"",
+    "Content-Type": "text/html; charset=utf-8"
+  },
+  "_release": "e-tag:f5eed2cd2",
+  "main": "index.js",
+  "_source": "https://github.com/eligrey/classList.js",
+  "_target": "*",
+  "_originalSource": "https://github.com/eligrey/classList.js",
+  "_direct": true
+}
