@@ -1,21 +1,17 @@
 {
   "name": "IIBBSY",
-  "description": "Is It Baseball Season Yet v2015",
-  "version": "3.0.0",
-  "dependencies": {
-    "requirejs": null,
-    "modernizr": null
-  },
+  "description": "Is It Baseball Season Yet?",
+  "version": "3.5.0",
   "authors": [
     "Alexis Cordova <acordova@mac.com>"
   ],
   "license": "MIT",
-  "homepage": "http://isitbaseballseasonyet.com",
   "private": true,
-  "ignore": [
-    "**/.*",
-    "node_modules",
-    "bower_components",
-    "assets/js/lib"
-  ]
+  "dependencies": {
+    "modernizr": "~2.8.3",
+    "requirejs": "~2.1.15",
+    "requestAnimationFrame": "https://github.com/alexiscordova/requestAnimationFrame.git",
+    "classList": "https://github.com/eligrey/classList.js.git",
+    "sanitize-css": "*"
+  }
 }

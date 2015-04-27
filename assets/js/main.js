@@ -1,10 +1,9 @@
 require.config({
-    baseUrl: '/assets/js/',
-
+    baseUrl: '/',
     paths: {
-        modernizr: 'lib/modernizr/modernizr-custom',
-        raf: 'lib/raf/raf',
-        classList: 'lib/classList/classList'
+        modernizr: 'assets/js/modernizr-custom',
+        raf: 'assets/vendor/requestAnimationFrame/raf',
+        classList: 'assets/vendor/classList/classList'
     },
 
     shim: {
@@ -20,12 +19,7 @@ require([
     'modernizr',
     'raf',
     'classList'
-], function(
-    Modernizr,
-    rAF,
-    classList
-) {
-    
+], function() {
     var IIBBSY = IIBBSY || {
         init: function() {
             var self = this;
@@ -47,17 +41,19 @@ require([
                 var now = new Date(),
                     distance = endDate - now,
                     days = Math.floor(distance / day),
-                    dayText = (day === 1) ? timeContainer.push(days + ' day') : timeContainer.push(days + ' days'),
+                    daysText = (day === 1) ? days + ' day' : days + ' days',
                     hours = Math.floor((distance % day) / hour),
-                    hourText = (hours === 1) ? timeContainer.push(hours + ' hour') : timeContainer.push(hours + ' hours'),
+                    hoursText = (hours === 1) ? hours + ' hour' : hours + ' hours',
                     minutes = Math.floor((distance % hour) / minute),
-                    minuteText = (minutes === 1) ? timeContainer.push(minutes + ' minute') : timeContainer.push(minutes + ' minutes'),
+                    minutesText = (minutes === 1) ? minutes + ' minute' : minutes + ' minutes',
                     seconds = Math.floor((distance % minute) / second),
-                    secondText = (seconds === 1) ? timeContainer.push(seconds + ' second') : timeContainer.push(seconds + ' seconds');
+                    secondsText = (seconds === 1) ? seconds + ' second' : seconds + ' seconds';
+
+                timeContainer.push(daysText, hoursText, minutesText, secondsText);
 
                 if (distance < 0) {
                     cancelAnimationFrame(timeRemaining);
-                    _elem.innerHTML = '0 days 0 hours 0 minutes 0 seconds';
+                    _elem.innerHTML = 'YES!';
                 } else {
                     _elem.innerHTML = timeContainer.toString().replace(/,/g,' ');
                     timeContainer = [];
