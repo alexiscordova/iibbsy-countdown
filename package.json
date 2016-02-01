@@ -1,0 +1,10 @@
+{
+  "name": "IIBBSY",
+  "description": "Is It Baseball Season Yet?",
+  "version": "4.0.0",
+  "authors": [
+    "Alexis Cordova <acordova@mac.com>"
+  ],
+  "license": "MIT",
+  "devDependencies": {}
+}
