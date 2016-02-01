@@ -3,8 +3,8 @@ module.exports = function(grunt) {
     require('load-grunt-tasks')(grunt);
 
     // Register Grunt tasks
-    grunt.registerTask('default', ['clean:build', 'sass:dev', 'autoprefixer:dev', 'modernizr', 'copy', 'svgstore', 'requirejs:dev']);
-    grunt.registerTask('deploy', ['clean:build', 'sass:deploy', 'autoprefixer:deploy', 'modernizr', 'copy', 'svgstore', 'requirejs:deploy', 'aws_s3:build']);
+    grunt.registerTask('default', ['clean:build', 'sass:dev', 'autoprefixer:dev', /* 'modernizr', */ 'copy', 'svgstore', 'requirejs:dev']);
+    grunt.registerTask('deploy', ['clean:build', 'sass:deploy', 'autoprefixer:deploy', /* 'modernizr', */ 'copy', 'svgstore', 'requirejs:deploy', 'aws_s3:build']);
     grunt.registerTask('perf', []);
 
     // Grunt configuration

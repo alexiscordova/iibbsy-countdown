@@ -24,7 +24,7 @@ require([
         init: function() {
             var self = this;
 
-            self.countdownTimer('04/05/2015 5:05 PM', '.countdown h2');
+            self.countdownTimer('04/03/2016 5:05 PM', '.countdown h2');
         },
 
         countdownTimer: function(dt, elem) {

@@ -16,7 +16,7 @@ body {
     @include fontSize($base-font-size);
     line-height: $base-line-height;
     background-color: $trueBlack;
-    background-image: url(/assets/img/2015.jpg);
+    background-image: url(/assets/img/2016.jpg);
     background-repeat: no-repeat;
     background-position: center center;
     background-size: cover;
@@ -54,11 +54,4 @@ body {
 
 .text-center {
     text-align: center;
-}
-
-// Pixel ratios are not supported by Autoprefixer yet, so Webkit-only for now
-@media only screen and (min-width: $screen-lg) and (-webkit-min-device-pixel-ratio: 1.5) {
-    body {
-        background-image: url(/assets/img/champions_2x.jpg);
-    }
 }
