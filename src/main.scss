@@ -14,3 +14,9 @@
 
 // Elements - Styles that target bare HTML elements
 @import 'src/elements/elements';
+
+// Objects - Content-agnostic UI
+@import 'src/objects/objects';
+
+// Components - Content-specific UI
+@import 'src/components/components';

@@ -4,7 +4,7 @@ var classList = require('../vendors/classlist/classList'),
   raf = require('../vendors/requestAnimationFrame/raf');
 
 function render() {
-  countdownTimer('04/03/2016 5:05 PM', '.countdown h2');
+  countdownTimer('04/03/2016 5:05 PM', '.time-remaining h2');
 }
 
 // dt = datetime, in MM/DD/YYYY Hh:ss TZ format
