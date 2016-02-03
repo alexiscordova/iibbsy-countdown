@@ -10,7 +10,11 @@ var gulp = require('gulp'),
   responsive = require('gulp-responsive'),
   imagemin = require('gulp-imagemin'),
   cache = require('gulp-cache'),
-  handlebars = require('gulp-compile-handlebars');
+  handlebars = require('gulp-compile-handlebars'),
+  browserify = require('browserify'),
+  source = require('vinyl-source-stream'),
+  buffer = require('vinyl-buffer'),
+  uglify = require('gulp-uglify');
 
 // Sass settings
 var sassSettings = {
@@ -30,7 +34,7 @@ gulp.task('clean-css', function(resp) {
 
 // Compile Sass with Autoprefixer
 gulp.task('sass', function() {
-  return gulp.src('src/*.scss', sassSettings)
+  return gulp.src('src/main.scss', sassSettings)
     .pipe(sass(sassSettings))
     .pipe(autoprefixer(browsers))
     .pipe(rename({ suffix: '.min' }))
@@ -80,6 +84,18 @@ gulp.task('handlebars', function() {
     .pipe(gulp.dest('dist/'));
 });
 
+// Compile JavaScript
+gulp.task('js', function() {
+  browserify('src/js/iibbsy.js', { debug: false })
+    .bundle()
+    .pipe(source('main.min.js'))
+    .pipe(buffer())
+    .pipe(uglify({
+      compress: true
+    }))
+    .pipe(gulp.dest('dist/assets/js'));
+});
+
 // Create local server
 gulp.task('server', function() {
   connect.server({
@@ -91,7 +107,7 @@ gulp.task('server', function() {
 
 // TASKS
 // Default task
-gulp.task('default', ['clean-css', 'handlebars', 'sass', 'images', 'responsive', 'imagemin']);
+gulp.task('default', ['clean-css', 'handlebars', 'js', 'sass', 'images', 'responsive', 'imagemin']);
 
 // Watch task
 gulp.task('watch', ['server'], function() {
@@ -101,6 +117,9 @@ gulp.task('watch', ['server'], function() {
 
   // Watch Handlebars and template data
   gulp.watch(['src/templates/*.hbs', 'src/_data/*.json'], ['handlebars']);
+
+  // Watch JavaScript
+  gulp.watch(['src/js/*.js'], ['js']);
 
   // LiveReload
   livereload.listen();
