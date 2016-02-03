@@ -6,8 +6,8 @@
 // Utilities
 @import 'src/utilities/utilities';
 
-// Base settings
-//@import 'src/base/base';
+// Base settings - Code that does not output CSS directly
+@import 'src/base/base';
 
 // Layout
 @import 'src/layouts/layouts';

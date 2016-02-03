@@ -1,12 +1,18 @@
 // Main
 
+html {
+  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-size: 62.5%;
+  line-height: 1.4;
+}
+
 body {
   display: flex;
   flex-direction: column;
   position: relative;
   z-index: 1;
   min-height: 100%;
-  color: white;
+  color: $true-white;
   background-image: url('/assets/img/2016.jpg');
   background-image: image-set(
     '/assets/img/2016.jpg' 1x,
@@ -22,7 +28,7 @@ body {
     right: 0;
     bottom: 0;
     left: 0;
-    background-color: rgba(0,0,0,0.45);
+    background-color: rgba($true-black, .45);
     content: '';
   }
 }

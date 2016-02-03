@@ -3,4 +3,10 @@
 footer {
   position: relative;
   z-index: 2;
+
+  small {
+    display: inline-block;
+    margin-bottom: 10px;
+    color: darken($true-white, 20%);
+  }
 }
