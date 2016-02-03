@@ -1,6 +1,7 @@
 // Load plugins
 var gulp = require('gulp'),
   del = require('del'),
+  fs = require('fs'),
   rename = require('gulp-rename'),
   sass = require('gulp-sass'),
   autoprefixer = require('gulp-autoprefixer'),
@@ -8,7 +9,8 @@ var gulp = require('gulp'),
   livereload = require('gulp-livereload')
   responsive = require('gulp-responsive'),
   imagemin = require('gulp-imagemin'),
-  cache = require('gulp-cache');
+  cache = require('gulp-cache'),
+  handlebars = require('gulp-compile-handlebars');
 
 // Sass settings
 var sassSettings = {
@@ -67,6 +69,17 @@ gulp.task('imagemin', function() {
     .pipe(gulp.dest('dist/assets/img'));
 });
 
+// Compile Handlebars templates
+gulp.task('handlebars', function() {
+  // Handlebars data
+  var templateData = JSON.parse(fs.readFileSync('src/_data/countdown.json'));
+
+  return gulp.src('src/templates/index.hbs')
+    .pipe(handlebars(templateData))
+    .pipe(rename('index.html'))
+    .pipe(gulp.dest('dist/'));
+});
+
 // Create local server
 gulp.task('server', function() {
   connect.server({
@@ -78,7 +91,7 @@ gulp.task('server', function() {
 
 // TASKS
 // Default task
-gulp.task('default', ['clean-css', 'sass', 'images', 'responsive', 'imagemin']);
+gulp.task('default', ['clean-css', 'handlebars', 'sass', 'images', 'responsive', 'imagemin']);
 
 // Watch task
 gulp.task('watch', ['server'], function() {
@@ -86,6 +99,10 @@ gulp.task('watch', ['server'], function() {
   // Watch Sass
   gulp.watch(['src/**/*.scss'], ['sass']);
 
+  // Watch Handlebars and template data
+  gulp.watch(['src/templates/*.hbs', 'src/_data/*.json'], ['handlebars']);
+
+  // LiveReload
   livereload.listen();
   gulp.watch('dist/**').on('change', livereload.changed);
 });
