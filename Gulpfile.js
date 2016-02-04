@@ -28,8 +28,8 @@ var browsers = {
 };
 
 // Clean directories
-gulp.task('clean-css', function(resp) {
-  del(['dist/assets/css'], resp);
+gulp.task('clean', function(resp) {
+  del(['dist'], resp);
 });
 
 // Compile Sass with Autoprefixer
@@ -107,7 +107,7 @@ gulp.task('server', function() {
 
 // TASKS
 // Default task
-gulp.task('default', ['clean-css', 'handlebars', 'js', 'sass', 'images', 'responsive', 'imagemin']);
+gulp.task('default', ['clean', 'handlebars', 'js', 'sass', 'images', 'responsive', 'imagemin']);
 
 // Watch task
 gulp.task('watch', ['server'], function() {
