@@ -26,7 +26,11 @@ p {
 
 // Small copy
 small {
-  font-size: 1.4rem;
+  font-size: 1.2rem;
+
+  @include breakpoint(medium) {
+    font-size: 1.4rem;
+  }
 }
 
 // Links
