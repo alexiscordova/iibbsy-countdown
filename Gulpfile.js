@@ -2,6 +2,7 @@
 var gulp = require('gulp'),
   del = require('del'),
   fs = require('fs'),
+  runSequence = require('run-sequence'),
   rename = require('gulp-rename'),
   sass = require('gulp-sass'),
   autoprefixer = require('gulp-autoprefixer'),
@@ -14,7 +15,9 @@ var gulp = require('gulp'),
   browserify = require('browserify'),
   source = require('vinyl-source-stream'),
   buffer = require('vinyl-buffer'),
-  uglify = require('gulp-uglify');
+  uglify = require('gulp-uglify'),
+  s3 = require('gulp-s3'),
+  gzip = require('gulp-gzip');
 
 // Sass settings
 var sassSettings = {
@@ -27,9 +30,18 @@ var browsers = {
   browsers: ['last 2 versions', 'ie >= 10']
 };
 
+// AWS S3 Settings
+var aws = JSON.parse(fs.readFileSync('src/aws.json')),
+  awsOptions = {
+    headers: {
+      'Cache-Control': 'max-age=604800, no-transform, public',
+      'Expires': new Date(Date.now() + 31536000).toUTCString()
+    }
+  };
+
 // Clean directories
-gulp.task('clean', function(resp) {
-  del(['dist'], resp);
+gulp.task('clean', function() {
+  return del(['dist']);
 });
 
 // Compile Sass with Autoprefixer
@@ -105,9 +117,36 @@ gulp.task('server', function() {
   });
 });
 
+// AWS S3 Deployment
+gulp.task('s3:dev', function() {
+  aws.bucket = 'dev.isitbaseballseasonyet.com';
+
+  return gulp.src('dist/**')
+    .pipe(gzip())
+    .pipe(s3(aws, awsOptions));
+});
+
+gulp.task('s3:publish', function() {
+  aws.bucket = 'isitbaseballseasonyet.com';
+
+  return gulp.src('dist/**')
+    .pipe(gzip())
+    .pipe(s3(aws, awsOptions));
+});
+
 // TASKS
 // Default task
 gulp.task('default', ['clean', 'handlebars', 'js', 'sass', 'images', 'responsive', 'imagemin']);
+
+// Dev Deployment task
+gulp.task('deploy', ['clean'], function(callback) {
+  runSequence(['handlebars', 'js', 'sass', 'images'], 'responsive', 'imagemin', 's3:dev', callback);
+});
+
+// Publish task
+gulp.task('publish', ['clean'], function(callback) {
+  runSequence(['handlebars', 'js', 'sass', 'images'], 'responsive', 'imagemin', 's3:publish', callback);
+});
 
 // Watch task
 gulp.task('watch', ['server'], function() {
