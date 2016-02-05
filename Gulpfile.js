@@ -17,7 +17,8 @@ var gulp = require('gulp'),
   buffer = require('vinyl-buffer'),
   uglify = require('gulp-uglify'),
   s3 = require('gulp-s3'),
-  gzip = require('gulp-gzip');
+  gzip = require('gulp-gzip'),
+  modernizr = require('gulp-modernizr');
 
 // Sass settings
 var sassSettings = {
@@ -51,12 +52,6 @@ gulp.task('sass', function() {
     .pipe(autoprefixer(browsers))
     .pipe(rename({ suffix: '.min' }))
     .pipe(gulp.dest('dist/assets/css'));
-});
-
-// Copy images to dist
-gulp.task('images', function() {
-  return gulp.src('src/img/*.{png,jpg}')
-    .pipe(gulp.dest('dist/assets/img'));
 });
 
 // Create responsive images
@@ -108,6 +103,15 @@ gulp.task('js', function() {
     .pipe(gulp.dest('dist/assets/js'));
 });
 
+// Create custom Modernizr build
+gulp.task('modernizr', function() {
+  return gulp.src(['src/js/*.js', 'src/**/*.scss'])
+    .pipe(modernizr({
+      options: ['setClasses', 'addTest', 'html5printshiv', 'testProp', 'fnBind']
+    }))
+    .pipe(gulp.dest('src/vendors/modernizr/'));
+});
+
 // Create local server
 gulp.task('server', function() {
   connect.server({
@@ -136,16 +140,18 @@ gulp.task('s3:publish', function() {
 
 // TASKS
 // Default task
-gulp.task('default', ['clean', 'handlebars', 'js', 'sass', 'images', 'responsive', 'imagemin']);
+gulp.task('default', ['clean'], function(callback) {
+  runSequence(['handlebars', 'modernizr', 'sass'], 'js', 'responsive', 'imagemin', callback);
+});
 
 // Dev Deployment task
-gulp.task('deploy', ['clean'], function(callback) {
-  runSequence(['handlebars', 'js', 'sass', 'images'], 'responsive', 'imagemin', 's3:dev', callback);
+gulp.task('deploy', ['default'], function(callback) {
+  runSequence('s3:dev', callback);
 });
 
 // Publish task
-gulp.task('publish', ['clean'], function(callback) {
-  runSequence(['handlebars', 'js', 'sass', 'images'], 'responsive', 'imagemin', 's3:publish', callback);
+gulp.task('publish', ['default'], function(callback) {
+  runSequence('s3:publish', callback);
 });
 
 // Watch task
@@ -158,7 +164,7 @@ gulp.task('watch', ['server'], function() {
   gulp.watch(['src/templates/*.hbs', 'src/_data/*.json'], ['handlebars']);
 
   // Watch JavaScript
-  gulp.watch(['src/js/*.js'], ['js']);
+  gulp.watch(['src/js/*.js'], ['modernizr', 'js']);
 
   // LiveReload
   livereload.listen();

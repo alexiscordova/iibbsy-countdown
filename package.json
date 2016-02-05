@@ -17,6 +17,7 @@
     "gulp-gzip": "^1.2.0",
     "gulp-imagemin": "^2.4.0",
     "gulp-livereload": "^3.8.1",
+    "gulp-modernizr": "0.0.0",
     "gulp-rename": "^1.2.2",
     "gulp-responsive": "^2.0.0",
     "gulp-s3": "^0.3.0",

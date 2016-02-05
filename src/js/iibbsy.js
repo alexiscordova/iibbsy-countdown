@@ -1,7 +1,8 @@
 'use strict';
 
 var classList = require('../vendors/classlist/classList'),
-  raf = require('../vendors/requestAnimationFrame/raf');
+  raf = require('../vendors/requestAnimationFrame/raf'),
+  modernizr = require('../vendors/modernizr/modernizr');
 
 function render() {
   countdownTimer('04/03/2016 5:05 PM', '.time-remaining h2');
