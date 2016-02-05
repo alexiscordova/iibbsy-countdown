@@ -39,3 +39,14 @@
     }
   }
 }
+
+// No-Flexbox Fallback
+.no-flexbox .countdown h2,
+.no-flexboxlegacy .countdown h2 {
+  position: absolute;
+  z-index: 1;
+  top: 50%;
+  left: 50%;
+  margin-top: -22px;
+  margin-left: -300px;
+}
