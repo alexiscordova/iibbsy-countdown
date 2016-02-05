@@ -4,3 +4,4 @@ node_modules
 
 src/vendors
 !src/vendors/normalize.scss
+aws.json
