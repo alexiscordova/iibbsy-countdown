@@ -9,9 +9,7 @@
   "private": true,
   "dependencies": {
     "normalize-css": "^3.0.3",
-    "classlist": "^2014.12.13"
-  },
-  "devDependencies": {
-    "requestAnimationFrame": "git@github.com:alexiscordova/requestAnimationFrame.git"
+    "classlist": "^2014.12.13",
+    "requestAnimationFrame": "https://github.com/alexiscordova/requestAnimationFrame.git"
   }
 }
