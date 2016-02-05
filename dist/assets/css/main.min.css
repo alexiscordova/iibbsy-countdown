@@ -393,7 +393,19 @@ th {
   padding: 0;
 }
 
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
+}
+
+html,
+body {
+  height: 100%;
+}
+
 html {
+  box-sizing: border-box;
   font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
   font-size: 62.5%;
   line-height: 1.4;
@@ -406,8 +418,6 @@ body {
   -webkit-flex-direction: column;
       -ms-flex-direction: column;
           flex-direction: column;
-  position: relative;
-  z-index: 1;
   min-height: 100%;
   color: #fff;
   background-image: url("/assets/img/2016-desktop.jpg");
@@ -575,4 +585,14 @@ a:hover {
   .countdown h2 {
     text-align: inherit;
   }
+}
+
+.no-flexbox .countdown h2,
+.no-flexboxlegacy .countdown h2 {
+  position: absolute;
+  z-index: 1;
+  top: 50%;
+  left: 50%;
+  margin-top: -22px;
+  margin-left: -300px;
 }
