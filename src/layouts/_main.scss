@@ -1,0 +1,84 @@
+// Main
+
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
+}
+
+html,
+body {
+  height: 100%;
+}
+
+html {
+  box-sizing: border-box;
+  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-size: 62.5%;
+  line-height: 1.4;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100%;
+  color: $true-white;
+  // TODO: replace images with mobile-specific versions
+  background-image: url('/assets/img/2016-desktop.jpg');
+  background-image: image-set(
+    '/assets/img/2016-desktop.jpg' 1x,
+    '/assets/img/2016-desktop_2x.jpg' 2x
+  );
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: cover;
+  &:after {
+    position: absolute;
+    z-index: 1;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background-color: rgba($true-black, .45);
+    content: '';
+  }
+
+  @include breakpoint(medium) {
+    // TODO: replace images with tablet-specific versions
+    background-image: url('/assets/img/2016-desktop.jpg');
+    background-image: image-set(
+      '/assets/img/2016-desktop.jpg' 1x,
+      '/assets/img/2016-desktop_2x.jpg' 2x
+    );
+  }
+
+  @include breakpoint(large) {
+    background-image: url('/assets/img/2016-desktop.jpg');
+    background-image: image-set(
+      '/assets/img/2016-desktop.jpg' 1x,
+      '/assets/img/2016-desktop_2x.jpg' 2x
+    );
+  }
+}
+
+.container {
+  position: relative;
+  z-index: 2;
+  max-width: 960px;
+  width: 100%;
+  &[role="main"] {
+    flex: 1;
+  }
+}
+
+// Utility classes
+.block-center {
+  display: block;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+
+.text-center {
+  text-align: center;
+}

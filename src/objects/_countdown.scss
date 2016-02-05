@@ -1,0 +1,52 @@
+// Countdown component
+
+.countdown {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: 80px;
+  margin-right: 25px;
+  margin-left: 25px;
+  height: 200px;
+  background-color: rgba($true-white, 0.25);
+  border: 4px solid $true-white;
+
+  @include breakpoint(medium) {
+    margin-top: 100px;
+  }
+
+  @include breakpoint(large) {
+    margin-top: 200px;
+    margin-right: 0;
+    margin-left: 0;
+  }
+
+  h1 {
+    position: absolute;
+    z-index: 1;
+    top: -20%;
+    left: 0;
+  }
+
+  h2 {
+    text-align: center;
+
+    @include breakpoint(medium) {
+      text-align: inherit;
+    }
+  }
+}
+
+// No-Flexbox Fallback
+.no-flexbox .countdown h2,
+.no-flexboxlegacy .countdown h2 {
+  position: absolute;
+  z-index: 1;
+  top: 50%;
+  left: 50%;
+  margin-top: -22px;
+  margin-left: -300px;
+}
