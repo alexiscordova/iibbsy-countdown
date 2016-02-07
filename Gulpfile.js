@@ -57,6 +57,7 @@ gulp.task('sass', function() {
 // Create responsive images
 gulp.task('responsive', function() {
   return gulp.src('src/img/*.{png,jpg}')
+    .pipe(gulp.dest('dist/assets/img'))
     .pipe(responsive({
       '*_2x.{png,jpg}': {
         width: '50%'
@@ -72,11 +73,11 @@ gulp.task('responsive', function() {
 // Compress images
 gulp.task('imagemin', function() {
   return gulp.src('dist/assets/img/*.{png,jpg}')
-    .pipe(cache(imagemin({
+    .pipe(imagemin({
       optimizationLevel: 7,
       progressive: true,
       interlaced: true
-    })))
+    }))
     .pipe(gulp.dest('dist/assets/img'));
 });
 
