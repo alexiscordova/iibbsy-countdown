@@ -58,15 +58,15 @@ gulp.task('sass', function() {
 gulp.task('responsive', function() {
   return gulp.src('src/img/*.{png,jpg}')
     .pipe(gulp.dest('dist/assets/img'))
-    .pipe(responsive({
-      '*_2x.{png,jpg}': {
-        width: '50%'
-      }
-    }))
-    // Remove suffix from retina images
-    .pipe(rename(function(path) {
-      path.basename = path.basename.replace(/_2x/g, '')
-    }))
+    // .pipe(responsive({
+    //   '*_2x.{png,jpg}': {
+    //     width: '50%'
+    //   }
+    // }))
+    // // Remove suffix from retina images
+    // .pipe(rename(function(path) {
+    //   path.basename = path.basename.replace(/_2x/g, '')
+    // }))
     .pipe(gulp.dest('dist/assets/img'));
 });
 

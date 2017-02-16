@@ -412,17 +412,15 @@ html {
 }
 
 body {
-  display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
-  -webkit-flex-direction: column;
-      -ms-flex-direction: column;
-          flex-direction: column;
+  -ms-flex-direction: column;
+      flex-direction: column;
   min-height: 100%;
   color: #fff;
-  background-image: url("/assets/img/2016-desktop.jpg");
-  background-image: -webkit-image-set(url("/assets/img/2016-desktop.jpg") 1x, url("/assets/img/2016-desktop_2x.jpg") 2x);
-  background-image: image-set("/assets/img/2016-desktop.jpg" 1x, "/assets/img/2016-desktop_2x.jpg" 2x);
+  background-image: url("/assets/img/apocalypse.jpg");
+  background-image: -webkit-image-set(url("/assets/img/apocalypse.jpg") 1x, url("/assets/img/apocalypse_2x.jpg") 2x);
+  background-image: image-set("/assets/img/apocalypse.jpg" 1x, "/assets/img/apocalypse_2x.jpg" 2x);
   background-repeat: no-repeat;
   background-position: center center;
   background-size: cover;
@@ -441,17 +439,17 @@ body:after {
 
 @media only screen and (min-width: 40em) {
   body {
-    background-image: url("/assets/img/2016-desktop.jpg");
-    background-image: -webkit-image-set(url("/assets/img/2016-desktop.jpg") 1x, url("/assets/img/2016-desktop_2x.jpg") 2x);
-    background-image: image-set("/assets/img/2016-desktop.jpg" 1x, "/assets/img/2016-desktop_2x.jpg" 2x);
+    background-image: url("/assets/img/apocalypse.jpg");
+    background-image: -webkit-image-set(url("/assets/img/apocalypse.jpg") 1x, url("/assets/img/apocalypse_2x.jpg") 2x);
+    background-image: image-set("/assets/img/apocalypse.jpg" 1x, "/assets/img/apocalypse_2x.jpg" 2x);
   }
 }
 
 @media only screen and (min-width: 64em) {
   body {
-    background-image: url("/assets/img/2016-desktop.jpg");
-    background-image: -webkit-image-set(url("/assets/img/2016-desktop.jpg") 1x, url("/assets/img/2016-desktop_2x.jpg") 2x);
-    background-image: image-set("/assets/img/2016-desktop.jpg" 1x, "/assets/img/2016-desktop_2x.jpg" 2x);
+    background-image: url("/assets/img/apocalypse.jpg");
+    background-image: -webkit-image-set(url("/assets/img/apocalypse.jpg") 1x, url("/assets/img/apocalypse_2x.jpg") 2x);
+    background-image: image-set("/assets/img/apocalypse.jpg" 1x, "/assets/img/apocalypse_2x.jpg" 2x);
   }
 }
 
@@ -463,9 +461,8 @@ body:after {
 }
 
 .container[role="main"] {
-  -webkit-flex: 1;
-      -ms-flex: 1;
-          flex: 1;
+  -ms-flex: 1;
+      flex: 1;
 }
 
 .block-center {
@@ -536,18 +533,14 @@ a:hover {
 .countdown {
   position: relative;
   z-index: 1;
-  display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
-  -webkit-flex-direction: column;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  -webkit-justify-content: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -webkit-align-items: center;
-      -ms-flex-align: center;
-          align-items: center;
+  -ms-flex-direction: column;
+      flex-direction: column;
+  -ms-flex-pack: center;
+      justify-content: center;
+  -ms-flex-align: center;
+      align-items: center;
   margin-top: 80px;
   margin-right: 25px;
   margin-left: 25px;

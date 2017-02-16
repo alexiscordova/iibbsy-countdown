@@ -24,10 +24,10 @@ body {
   min-height: 100%;
   color: $true-white;
   // TODO: replace images with mobile-specific versions
-  background-image: url('/assets/img/2016-desktop.jpg');
+  background-image: url('/assets/img/apocalypse.jpg');
   background-image: image-set(
-    '/assets/img/2016-desktop.jpg' 1x,
-    '/assets/img/2016-desktop_2x.jpg' 2x
+    '/assets/img/apocalypse.jpg' 1x,
+    '/assets/img/apocalypse_2x.jpg' 2x
   );
   background-repeat: no-repeat;
   background-position: center center;
@@ -45,18 +45,18 @@ body {
 
   @include breakpoint(medium) {
     // TODO: replace images with tablet-specific versions
-    background-image: url('/assets/img/2016-desktop.jpg');
+    background-image: url('/assets/img/apocalypse.jpg');
     background-image: image-set(
-      '/assets/img/2016-desktop.jpg' 1x,
-      '/assets/img/2016-desktop_2x.jpg' 2x
+      '/assets/img/apocalypse.jpg' 1x,
+      '/assets/img/apocalypse_2x.jpg' 2x
     );
   }
 
   @include breakpoint(large) {
-    background-image: url('/assets/img/2016-desktop.jpg');
+    background-image: url('/assets/img/apocalypse.jpg');
     background-image: image-set(
-      '/assets/img/2016-desktop.jpg' 1x,
-      '/assets/img/2016-desktop_2x.jpg' 2x
+      '/assets/img/apocalypse.jpg' 1x,
+      '/assets/img/apocalypse_2x.jpg' 2x
     );
   }
 }
