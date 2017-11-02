@@ -1,0 +1,77 @@
+{
+  "root": true,
+  "extends": [
+    "standard",
+    "plugin:jsx-a11y/recommended",
+    "plugin:react/recommended"
+  ],
+  "plugins": [
+    "standard",
+    "react",
+    "jsx-a11y",
+    "compat"
+  ],
+  "parser": "babel-eslint",
+  "parserOptions": {
+    "ecmaFeatures": {
+      "jsx": true,
+      "modules": true,
+      "experimentalObjectRestSpread": true
+    }
+  },
+  "env": {
+    "browser": true,
+    "node": true
+  },
+  "rules": {
+    "max-len": ["error", 80, { "ignoreComments": true }],
+    "no-var": "error",
+    "no-unused-vars": "error",
+    "object-curly-spacing": ["error", "always"],
+    "react/no-danger": "error",
+    "react/no-unused-prop-types": "error",
+    "react/prefer-es6-class": "error",
+    "react/prefer-stateless-function": "error",
+    "react/require-default-props": "error",
+    "react/sort-comp": ["error", {
+      "order": [
+        "static-methods",
+        "lifecycle",
+        "render",
+        "everything-else"
+      ],
+      "groups": {
+        "lifecycle": [
+          "constructor",
+          "getChildContext",
+          "componentWillMount",
+          "componentDidMount",
+          "componentWillReceiveProps",
+          "shouldComponentUpdate",
+          "componentWillUpdate",
+          "componentDidUpdate",
+          "componentWillUnmount",
+          "displayName",
+          "propTypes",
+          "contextTypes",
+          "childContextTypes",
+          "mixins",
+          "statics",
+          "defaultProps",
+          "getDefaultProps",
+          "getInitialState",
+          "state"
+        ]
+      }
+    }],
+    "react/jsx-uses-react": "error",
+    "react/jsx-uses-vars": "error",
+    "react/jsx-tag-spacing": ["error", {}],
+    "react/jsx-indent-props": ["error", 2],
+    "react/jsx-indent": ["error", 2],
+    "react/jsx-curly-spacing": ["error", "never"],
+    "react/jsx-closing-bracket-location": [2, "tag-aligned"],
+    "react/jsx-pascal-case": [2, { "allowAllCaps": false}],
+    "compat/compat": 2
+  }
+}
