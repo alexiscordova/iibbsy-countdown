@@ -5,7 +5,7 @@ var classList = require('../vendors/classlist/classList'),
   modernizr = require('../vendors/modernizr/modernizr');
 
 function render() {
-  countdownTimer('04/02/2017 10:15 AM', '.time-remaining h2');
+  countdownTimer('03/29/2018 10:10 AM', '.time-remaining h2');
 }
 
 // dt = datetime, in MM/DD/YYYY Hh:ss TZ format

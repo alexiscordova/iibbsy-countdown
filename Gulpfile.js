@@ -142,7 +142,7 @@ gulp.task('s3:publish', function() {
 // TASKS
 // Default task
 gulp.task('default', ['clean'], function(callback) {
-  runSequence(['handlebars', 'modernizr', 'sass'], 'js', 'responsive', 'imagemin', callback);
+  runSequence(['handlebars', 'modernizr', 'sass'], 'js', 'responsive',  callback);
 });
 
 // Dev Deployment task
