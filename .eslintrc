@@ -24,10 +24,16 @@
     "node": true
   },
   "rules": {
-    "max-len": ["error", 80, { "ignoreComments": true }],
+    "max-len": ["error", 120, { "ignoreComments": true }],
     "no-var": "error",
+    "one-var": ["error", {
+      "var": "never",
+      "let": "always",
+      "const": "never"
+    }],
     "no-unused-vars": "error",
     "object-curly-spacing": ["error", "always"],
+    "space-before-function-paren": ["error", "never"],
     "react/no-danger": "error",
     "react/no-unused-prop-types": "error",
     "react/prefer-es6-class": "error",
@@ -37,8 +43,8 @@
       "order": [
         "static-methods",
         "lifecycle",
-        "render",
-        "everything-else"
+        "everything-else",
+        "render"
       ],
       "groups": {
         "lifecycle": [
