@@ -3,7 +3,9 @@
   "version": "4.0.0",
   "description": "A countdown timer for Is It Baseball Season Yet",
   "main": "src/index.js",
-  "scripts": {},
+  "scripts": {
+    "start": "webpack-dev-server --open"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://alexiscordova@github.com/alexiscordova/iibbsy-countdown.git"
