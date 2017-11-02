@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import ReactGA from 'react-ga'
+import Countdown from 'Components/countdown/Countdown'
 import GlobalFooter from 'Components/global-footer/GlobalFooter'
 
 ReactGA.initialize('UA-347921-6')
@@ -24,7 +25,10 @@ class App extends Component {
     return (
       <article className="react-root">
         <main>
-          <h1>Is It Baseball Season Yet</h1>
+          <Countdown
+            openingDay="03/29/2018 10:10 AM"
+            year="2018"
+          />
         </main>
         <GlobalFooter />
       </article>
