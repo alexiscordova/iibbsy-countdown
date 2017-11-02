@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import ReactGA from 'react-ga'
+import Helmet from 'react-helmet'
 import Countdown from 'Components/countdown/Countdown'
 import GlobalFooter from 'Components/global-footer/GlobalFooter'
 import Data from '../../data.json'
@@ -25,6 +26,9 @@ class App extends Component {
   render() {
     return (
       <article className="react-root">
+        <Helmet>
+          <title>Is It Baseball Season Yet | MLB Opening Day {Data.year}</title>
+        </Helmet>
         <main>
           <Countdown
             openingDay={Data.openingDay}
