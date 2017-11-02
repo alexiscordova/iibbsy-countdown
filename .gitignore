@@ -1,7 +1,0 @@
-.DS_Store
-node_modules
-.sass-cache
-
-src/vendors
-!src/vendors/normalize.scss
-aws.json
