@@ -3,7 +3,7 @@ const path = require('path')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const StyleLintPlugin = require('stylelint-webpack-plugin')
 
-module.export = {
+module.exports = {
   resolve: {
     alias: {
       Containers: path.resolve(__dirname, 'src/containers'),
@@ -20,6 +20,11 @@ module.export = {
     path: path.resolve(__dirname, 'src'),
     publicPath: '/',
     filename: 'bundle.js'
+  },
+  devServer: {
+    contentBase: './dist',
+    compress: true,
+    hot: true
   },
 
   module: {
