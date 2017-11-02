@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import ReactGA from 'react-ga'
+import GlobalFooter from 'Components/global-footer/GlobalFooter'
 
 ReactGA.initialize('UA-347921-6')
 
@@ -25,6 +26,7 @@ class App extends Component {
         <main>
           <h1>Is It Baseball Season Yet</h1>
         </main>
+        <GlobalFooter />
       </article>
     )
   }
