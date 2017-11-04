@@ -1,4 +1,5 @@
 import React from 'react'
+import './globalFooter.scss'
 
 const GlobalFooter = () => {
   return (
