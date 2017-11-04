@@ -1,0 +1,26 @@
+$link-color: $giants-orange;
+
+a[href^="http"] {
+  position: relative;
+  z-index: 2;
+  color: $link-color;
+  text-decoration: none;
+
+  &:before {
+    position: absolute;
+    z-index: 2;
+    bottom: 0;
+    left: 0;
+    height: 1px;
+    width: 100%;
+    background-color: $link-color;
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.2s ease-in-out;
+    content: '';
+  }
+
+  &:hover:before {
+    transform: scaleX(1);
+  }
+}

@@ -4,6 +4,7 @@ import Helmet from 'react-helmet'
 import Countdown from 'Components/countdown/Countdown'
 import GlobalFooter from 'Components/global-footer/GlobalFooter'
 import Data from '../../data.json'
+import '../../styles/style.scss'
 
 ReactGA.initialize('UA-347921-6')
 

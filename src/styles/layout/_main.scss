@@ -1,0 +1,60 @@
+* {
+  box-sizing: border-box;
+
+  &:before,
+  &:after {
+    box-sizing: inherit;
+  }
+}
+
+html,
+body {
+  height: 100%;
+}
+
+html {
+  position: relative;
+  z-index: 1;
+  font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 62.5%;
+  line-height: 1.4;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  margin: 0;
+  color: $true-white;
+  background: url('../../public/images/background.jpg') center center no-repeat;
+  background-size: cover;
+
+  &:after {
+    position: absolute;
+    z-index: 1;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background-color: rgba($true-black, 0.45);
+    content: '';
+  }
+}
+
+.react-root {
+  position: relative;
+  z-index: 2;
+  height: 100vh;
+}
+
+.content-wrapper {
+  display: flex;
+  flex-direction: column;
+  margin: 0 auto;
+  max-width: 960px;
+  width: 100%;
+  height: 100vh;
+}
+
+main {
+  flex: 1;
+}
