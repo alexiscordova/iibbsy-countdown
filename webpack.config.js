@@ -47,7 +47,16 @@ module.exports = {
             }
           },
           'postcss-loader',
-          'sass-loader'
+          'sass-loader',
+          {
+            loader: 'sass-resources-loader',
+            options: {
+              resources: [
+                'src/styles/base/_colors.scss',
+                'src/styles/utilities/_mixins.scss'
+              ]
+            }
+          }
         ]
       },
       {
