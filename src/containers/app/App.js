@@ -26,7 +26,7 @@ class App extends Component {
 
   render() {
     return (
-      <article className="react-root">
+      <article className="content-wrapper">
         <Helmet>
           <title>Is It Baseball Season Yet | MLB Opening Day {Data.year}</title>
         </Helmet>
