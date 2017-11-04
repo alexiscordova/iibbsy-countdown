@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
+import './countdown.scss'
 
 class Countdown extends Component {
   constructor(props) {
@@ -51,9 +52,9 @@ class Countdown extends Component {
   render() {
     return (
       <div className="countdown">
-        <h1>Opening Day {this.props.year}</h1>
-        <div className="time-remaining">
-          <h2>{this.state.timeRemaining}</h2>
+        <h1 className="countdown-heading">Opening Day {this.props.year}</h1>
+        <div className="countdown-timer-wrapper">
+          <h2 className="countdown-timer">{this.state.timeRemaining}</h2>
         </div>
       </div>
     )
