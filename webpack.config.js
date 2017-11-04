@@ -60,9 +60,14 @@ module.exports = {
         ]
       },
       {
-        test: /\.(gif|jpe?g|png|svg)$/,
+        test: /\.(gif|jpe?g|png)$/,
         use: [
-          'file-loader?name=[path][name].[ext]'
+          {
+            loader: 'file-loader',
+            options: {
+              name: '[path][name].[ext]'
+            }
+          }
         ]
       }
     ]
