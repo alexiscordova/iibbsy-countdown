@@ -7,7 +7,14 @@ class Countdown extends Component {
     super(props)
 
     this.state = {
-      timeRemaining: ''
+      daysRemaining: null,
+      daysRemainingLabel: null,
+      hoursRemaining: null,
+      hoursRemainingLabel: null,
+      minutesRemaining: null,
+      minutesRemainingLabel: null,
+      secondsRemaining: null,
+      secondsRemainingLabel: null
     }
 
     this.loadCounter = this.loadCounter.bind(this)
@@ -26,35 +33,67 @@ class Countdown extends Component {
         now = new Date(),
         endDate = new Date(this.props.openingDay),
         timeRemaining = endDate - now,
-        daysRemaining = Math.floor(timeRemaining / day),
-        daysText = (day === 1) ? `${daysRemaining} day` : `${daysRemaining} days`,
-        hoursRemaining = Math.floor((timeRemaining % day) / hour),
-        hoursText = (hoursRemaining === 1) ? `${hoursRemaining} hour` : `${hoursRemaining} hours`,
-        minutesRemaining = Math.floor((timeRemaining % hour) / minute),
-        minutesText = (minutesRemaining === 1) ? `${minutesRemaining} minute` : `${minutesRemaining} minutes`,
-        secondsRemaining = Math.floor((timeRemaining % minute) / second),
-        secondsText = (secondsRemaining === 1) ? `${secondsRemaining} second` : `${secondsRemaining} seconds`
+        _daysRemaining = Math.floor(timeRemaining / day),
+        daysRemainingText = (day === 1) ? 'day' : 'days',
+        _hoursRemaining = Math.floor((timeRemaining % day) / hour),
+        hoursRemainingText = (_hoursRemaining === 1) ? 'hour' : 'hours',
+        _minutesRemaining = Math.floor((timeRemaining % hour) / minute),
+        minutesRemainingText = (_minutesRemaining === 1) ? 'minute' : 'minutes',
+        _secondsRemaining = Math.floor((timeRemaining % minute) / second),
+        secondsRemainingText = (_secondsRemaining === 1) ? 'second' : 'seconds'
 
-      if (timeRemaining <= 0) {
+      if (timeRemaining > 0) {
         this.setState({
-          timeRemaining: 'YES'
+          daysRemaining: _daysRemaining,
+          daysRemainingLabel: daysRemainingText,
+          hoursRemaining: _hoursRemaining,
+          hoursRemainingLabel: hoursRemainingText,
+          minutesRemaining: _minutesRemaining,
+          minutesRemainingLabel: minutesRemainingText,
+          secondsRemaining: _secondsRemaining,
+          secondsRemainingLabel: secondsRemainingText
         })
-
-        clearInterval(timer)
       } else {
-        this.setState({
-          timeRemaining: `${daysText} ${hoursText} ${minutesText} ${secondsText}`
-        })
+        clearInterval(timer)
       }
     }, 1000)
   }
 
   render() {
+    const {
+      daysRemaining,
+      daysRemainingLabel,
+      hoursRemaining,
+      hoursRemainingLabel,
+      minutesRemaining,
+      minutesRemainingLabel,
+      secondsRemaining,
+      secondsRemainingLabel
+    } = this.state
+
     return (
       <div className="countdown">
         <h1 className="countdown-heading">Opening Day {this.props.year}</h1>
         <div className="countdown-timer-wrapper">
-          <h2 className="countdown-timer">{this.state.timeRemaining}</h2>
+          <div className="countdown-timer-container">
+            <span className="countdown-time-remaining">{daysRemaining}</span>
+            <span className="countdown-time-remaining-label">{daysRemainingLabel}</span>
+          </div>
+
+          <div className="countdown-timer-container">
+            <span className="countdown-time-remaining">{hoursRemaining}</span>
+            <span className="countdown-time-remaining-label">{hoursRemainingLabel}</span>
+          </div>
+
+          <div className="countdown-timer-container">
+            <span className="countdown-time-remaining">{minutesRemaining}</span>
+            <span className="countdown-time-remaining-label">{minutesRemainingLabel}</span>
+          </div>
+
+          <div className="countdown-timer-container">
+            <span className="countdown-time-remaining">{secondsRemaining}</span>
+            <span className="countdown-time-remaining-label">{secondsRemainingLabel}</span>
+          </div>
         </div>
       </div>
     )
